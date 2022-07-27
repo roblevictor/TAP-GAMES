@@ -1,0 +1,29 @@
+.banner{
+  width: 100%;
+  display: flex;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.banner-center{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-left{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-right{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

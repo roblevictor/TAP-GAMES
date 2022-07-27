@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+header {
+    height: 80px;
+    width: 100%;
+    background-color: #000000a9;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    align-self: center;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.dropdown-background{
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  padding-top: 300px;
+}

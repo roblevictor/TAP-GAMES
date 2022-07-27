@@ -1,0 +1,38 @@
+/*/////////////////////////////////FOOTER///////////////////////////////*/
+
+footer{
+    height: 80px;
+    width: 100%;
+    background-color: #000000a9;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    width: 85%;
+  }
+  
+  .redes-sociais{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .redes-sociais a{
+    text-decoration: none;
+    font-size: 2.3em;
+    color: #fff;
+  }
+  
+  .footer-texto {
+    color: #fff;
+    text-align: center;
+  }
+  
