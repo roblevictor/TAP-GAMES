@@ -1,7 +1,3 @@
-import { bindActionCreators } from "redux";
-//nao tem nada programado aqui ainda
-import rootReducers from "../rootReducers";
-
 //credentials login e senha 
 
 export const loginStart = (credentials) => ({
@@ -11,7 +7,7 @@ export const loginStart = (credentials) => ({
 
 //objeto usuario
 
-export const loginSucess =(user) =>({
+export const loginSuccess =(user) =>({
     type: '@usuario/LOGIN_SUCCESS',
     user,
 });

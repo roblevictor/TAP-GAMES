@@ -1,11 +1,11 @@
 import Api from "../../../services/api";
 import {loginFailure, loginSuccess, registerFailure} from "./actions";
-import {all, put, take, takeLatest} from 'redux-saga/effects';
+import {all, put, takeLatest} from 'redux-saga/effects';
 import md5 from 'react-native-md5';
 
 function getGravatarURL(email){
     const address = String(email).trim().toLowerCase();
-    const hash = md5.hex_hmac_md5(address);
+    const hash = md5.hex_md5(address);
     return `http://www.gravatar.com/avatar/${hash}`;
 }
 
@@ -20,6 +20,7 @@ async function logIn(email, password) {
 
 //implementar essse
 async function signUp(nome, nick, email, password){
+    console.log(email)
     const data = JSON.stringify({
         "avatar": getGravatarURL(email),
         nome,
@@ -29,7 +30,8 @@ async function signUp(nome, nick, email, password){
         "score":0,
         "ranking":0
     });
-    await Api.post('/signup', data);
+    console.log(nome);
+    await Api.post('/user/add', data);
 }
 
 function* logWithCredentials({credentials}){
@@ -44,6 +46,7 @@ function* logWithCredentials({credentials}){
 //esse aqui
 function* registerWithCredentials({credentials}){
     const{nome, nick, email, password} = credentials;
+    console.log(nome);
     try{
         yield signUp(nome, nick, email, password);
     }catch(error){
