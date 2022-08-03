@@ -9,10 +9,10 @@ function getGravatarURL(email){
     return `http://www.gravatar.com/avatar/${hash}`;
 }
 
-async function logIn(email, password) {
+async function logIn(email, passwordHash) {
     const data = JSON.stringify({
         email,
-        password
+        passwordHash
     });
     const response = await Api.post('/signin', data);
     return response.data.data;

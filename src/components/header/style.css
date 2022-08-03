@@ -31,11 +31,12 @@ nav ul {
 
 .dropdown-background{
   display: flex;
-  align-items: flex-end;
+  align-items:flex-end;
+  justify-content: flex-end;
   position: absolute;
   right: 0;
-  left: 0;
+  left: 100px;
   bottom: 0;
-  top: 0;
+  top: 80px;
   padding-top: 300px;
 }

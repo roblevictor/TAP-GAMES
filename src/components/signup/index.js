@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import './styles.css';
+import './style.css';
 import {useDispatch} from 'react-redux';
 import { registerStart } from "../../store/modules/usuario/actions";
+
 
 
 function Signup(props) {
