@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './style.css';
+import './styles.css';
 import {useDispatch} from 'react-redux';
 import { registerStart } from "../../store/modules/usuario/actions";
 

@@ -9,17 +9,17 @@ function getGravatarURL(email){
     return `http://www.gravatar.com/avatar/${hash}`;
 }
 
-async function logIn(email, passwordHash) {
+async function logIn(email, password) {
     const data = JSON.stringify({
         email,
-        passwordHash
+        password
     });
     const response = await Api.post('/signin', data);
     return response.data.data;
 }
 
 //implementar essse
-async function signUp(nome, nick, email, password){
+async function signUp(nome, nick, email, password) {
     console.log(email)
     const data = JSON.stringify({
         "avatar": getGravatarURL(email),
@@ -31,7 +31,7 @@ async function signUp(nome, nick, email, password){
         "ranking":0
     });
     console.log(nome);
-    await Api.post('/user/add', data);
+    await Api.post('/signup', data);
 }
 
 function* logWithCredentials({credentials}){

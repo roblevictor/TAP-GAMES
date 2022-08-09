@@ -1,14 +1,12 @@
 import React, {useState} from "react";
 import Footer from '../../components/footer';
-import '/style.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {logOut} from '../../store/modules/usuario/actions';
 import signup from '../../components/signup';
-import {useNavigate} from 'react-router-dom';
+
 
 function Header(props){
     const dispatch = useDispatch();
-    let navigate = useNavigate();
     const user = useSelector(({usuario})=> usuario.currentUser);
     return(
         <>
@@ -28,7 +26,7 @@ function Header(props){
                 </a>
             </li>
             <li>
-                <a onClick={()=> {dispatch(logOut()); navigate("/");}}>
+                <a onClick={()=> dispatch(logOut()) }>
                     <i class="fa fa-sign-out"></i>
                 </a>
             </li>
