@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import Footer from '../../components/footer';
 import {useDispatch, useSelector} from 'react-redux';
 import {logOut} from '../../store/modules/usuario/actions';
-import signup from '../../components/signup';
-
+import RankingList from "../../components/rankingList";
+import Signup from "../../components/signup";
+import MeuRanking from "../../components/meuranking";
+import './style.css';
 
 function Header(props){
     const dispatch = useDispatch();
@@ -41,9 +43,14 @@ function Banner(props){
         <>
         <div class="banner">
             <div class="banner-left">
-
+                <RankingList />
             </div>
             <div class="banner-right">
+                {props.openPerfil === true?
+                    <Signup onClickCancel={props.onClickCancel} />
+                    :
+                    <MeuRanking />
+                }
 
             </div>
         </div>

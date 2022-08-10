@@ -1,0 +1,10 @@
+instalar o git 
+
+cirar o repositorio
+no promop na pasta raiz o projeto 
+git init
+
+criar na pasta raiz o arquivo .gitignore 
+inclusir caminho da pasta node_modules/
+
+git add.

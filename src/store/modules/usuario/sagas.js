@@ -1,5 +1,5 @@
 import Api from "../../../services/api";
-import {loginFailure, loginSuccess, registerFailure} from "./actions";
+import {loginFailure, loginSuccess, registerFailure, updateSuccess, updateFailure} from "./actions";
 import {all, put, takeLatest} from 'redux-saga/effects';
 import md5 from 'react-native-md5';
 
@@ -34,6 +34,19 @@ async function signUp(nome, nick, email, password) {
     await Api.post('/signup', data);
 }
 
+async function update(id, nome, nick, email) {
+    console.log(email)
+    const data = JSON.stringify({
+        "avatar": getGravatarURL(email),
+        nome,
+        nick,
+        email
+    });
+    const response = await Api.put('/user/'+id, data);
+    return response.data.data
+}
+
+
 function* logWithCredentials({credentials}){
     try{
         const user = yield logIn(credentials.email, credentials.password);
@@ -54,9 +67,20 @@ function* registerWithCredentials({credentials}){
     }
 }
 
+function* updateWithCredentials({credentials}){
+    const{id, nome, nick, email} = credentials;
+    try{
+        const user = update(id, nome, nick, email);
+        yield put(updateSuccess(user));
+    }catch(error){
+        yield put(updateFailure(error));
+    }
+}
+
 //fala qual função vai disparar quando a ação for executada
 
 export default all([
     takeLatest("@usuario/LOGIN_START", logWithCredentials),
     takeLatest("@usuario/REGISTER_START", registerWithCredentials),
+    takeLatest("@usuario/UPDATE_START", updateWithCredentials),
 ]);
